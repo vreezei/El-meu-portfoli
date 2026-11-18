@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacta amb mi - Alejandro Garcia</title>
+    <link rel="stylesheet" href="../css/style.css?v=15">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inici</a></li>
+                <li><a href="sobre_mi.html">Sobre mi</a></li>
+                <li><a href="horaris.html">Horaris</a></li>
+                <li><a href="contacta.html" aria-current="page">Contacta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="contact-panel">
+            <h1>Contacta amb mi</h1>
+
+            <form class="contact-form" novalidate>
+                <div class="contact-field contact-field-name">
+                    <label for="nom">Nom complet</label>
+                    <input id="nom" name="nom" type="text" placeholder="Escriu el teu nom..." required>
+                </div>
+
+                <div class="contact-field contact-field-email">
+                    <label for="correu">Correu electrònic</label>
+                    <input id="correu" name="correu" type="email" placeholder="nom@exemple.com" required>
+                </div>
+
+                <div class="contact-field contact-field-subject">
+                    <label for="assumpte">Assumpte</label>
+                    <input id="assumpte" name="assumpte" type="text" placeholder="Motiu del missatge..." required>
+                </div>
+
+                <div class="contact-field contact-field-message">
+                    <label for="missatge">Missatge</label>
+                    <textarea id="missatge" name="missatge" rows="4" placeholder="Escriu el teu missatge aquí..." required></textarea>
+                </div>
+
+                <button type="submit">Enviar missatge</button>
+                <p class="contact-feedback" role="alert" hidden>Plena el text per enviar.</p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Alejandro Garcia - Tots els drets reservats
+    </footer>
+    <script>
+        const contactForm = document.querySelector('.contact-form');
+        const contactFeedback = document.querySelector('.contact-feedback');
+
+        contactForm.addEventListener('submit', (event) => {
+            if (!contactForm.checkValidity()) {
+                event.preventDefault();
+                contactFeedback.hidden = false;
+            }
+        });
+
+        contactForm.addEventListener('input', () => {
+            contactFeedback.hidden = true;
+        });
+    </script>
+</body>
+</html>
